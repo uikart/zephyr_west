@@ -22,9 +22,7 @@ manifest:
     - name: upstream
       url-base: https://github.com/zephyrproject-rtos
     - name: ikart
-      url-base: https://github.com/uikart
-
-  group-filter: [-babblesim, -optional]
+      url-base: git@github.com:uikart
 
   #
   # Please add items below based on alphabetical order
@@ -32,7 +30,9 @@ manifest:
     - name: zephyr
       path: zephyr
       remote: ikart
-      revision: master
+      revision: stknx
+      west-commands: scripts/west-commands.yml
+
     - name: acpica
       revision: 8d24867bc9c9d81c81eeac59391cda59333affd4
       path: modules/lib/acpica
@@ -149,7 +149,15 @@ manifest:
       revision: 47f34dd7f5284e8750b5a715dee7f77c6c5bdc3f
       path: modules/lib/zcbor
 
+    - name: libknx
+      revision: main
+      remote: ikart
+      path: knx/libknx
+
+    - name: knx
+      revision: main
+      remote: ikart
+      path: knx/knx
+
   self:
-    path: zephyr
-    west-commands: scripts/west-commands.yml
-    import: submanifests
+    path: manifest
